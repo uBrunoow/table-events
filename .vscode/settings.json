@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "event_struct.h": "c",
+        "find_event.h": "c"
+    }
+}
