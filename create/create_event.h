@@ -6,10 +6,7 @@
 #include <stdlib.h>
 
 void create_event(struct EventStruct **events, int *event_count) {
-    struct EventStruct event;
     printf("\nCriação de eventos:\n");
-    scanf_event(&event);
-    show_event(&event);
 
     *events = realloc(*events, (*event_count + 1) * sizeof(struct EventStruct));
     if (*events == NULL) {
@@ -17,7 +14,9 @@ void create_event(struct EventStruct **events, int *event_count) {
         exit(1);
     }
 
-    (*events)[*event_count] = event;
+    scanf_event(*events, *event_count);
+    show_event(&(*events)[*event_count]);
+
     (*event_count)++;
 }
 
