@@ -1,6 +1,15 @@
 {
     "files.associations": {
         "event_struct.h": "c",
-        "find_event.h": "c"
+        "find_event.h": "c",
+        "save_events.h": "c",
+        "update_event.h": "c",
+        "find_event_by_string.h": "c",
+        "find_event_by_date.h": "c",
+        "delete_event.h": "c",
+        "create_event.h": "c",
+        "restore_event.h": "c",
+        "stdio.h": "c",
+        "show_event.h": "c"
     }
 }
