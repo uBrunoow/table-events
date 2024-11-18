@@ -50,7 +50,34 @@ void update_event(struct EventStruct *events, int event_count) {
           switch (selected_option)
           {
           case 1:
-            update_event_by_field(&events[index], EVENT_DATE_DAY);
+            update_event_by_field(&events[index], EVENT_DATE_DAY, events, event_count);
+            break;
+          case 2:
+            update_event_by_field(&events[index], EVENT_DATE_MONTH, events, event_count);
+            break;
+          case 3:
+            update_event_by_field(&events[index], EVENT_DATE_YEAR, events, event_count);
+            break;
+          case 4:
+            update_event_by_field(&events[index], EVENT_START_HOUR, events, event_count);
+            break;
+          case 5:
+            update_event_by_field(&events[index], EVENT_END_HOUR, events, event_count);
+            break;
+          case 6:
+            update_event_by_field(&events[index], TEAM_1, events, event_count);
+            break;
+          case 7:
+            update_event_by_field(&events[index], TEAM_2, events, event_count);
+            break;
+          case 8:
+            update_event_by_field(&events[index], DESCRIPTION, events, event_count);
+            break;
+          case 9:
+            update_event_by_field(&events[index], LOCAL, events, event_count);
+            break;
+          case 10:
+            selected_option = 10;
             break;
           
           default:

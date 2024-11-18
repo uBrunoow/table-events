@@ -5,6 +5,11 @@
 #include <string.h>
 
 int is_valid_date(const char *day, const char *month, const char *year) {
+    // Verifica se o comprimento das strings é adequado
+    if (strlen(day) != 2 || strlen(month) != 2 || strlen(year) != 4) {
+        return 0;
+    }
+
     int d = atoi(day);
     int m = atoi(month);
     int y = atoi(year);

@@ -17,8 +17,13 @@ void save_events(struct EventStruct *events, int event_count) {
 
     // Criar o nome do arquivo com o timestamp
     char filename[50];
-    snprintf(filename, sizeof(filename), "../events/saved/saved_%s.txt", timestamp);
 
+    #ifdef _WIN32
+        snprintf(filename, sizeof(filename), "events/saved/saved_%s.txt", timestamp);
+    #else
+        snprintf(filename, sizeof(filename), "../events/saved/saved_%s.txt", timestamp);
+    #endif
+    
     FILE *file = fopen(filename, "w");
     if (file == NULL) {
         perror("Erro ao abrir o arquivo para escrita");

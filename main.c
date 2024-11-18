@@ -59,7 +59,11 @@ int main() {
             delete_event(events, &event_count);
             break;
         case 8:
-            load_predefined_events("../events.txt", &events, &event_count);
+            #ifdef _WIN32
+                load_predefined_events("events.txt", &events, &event_count);
+            #else
+                load_predefined_events("./events.txt", &events, &event_count);
+            #endif
             break;
         case 9:
             save_events(events, event_count);

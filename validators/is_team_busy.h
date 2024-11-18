@@ -10,12 +10,10 @@ int is_team_busy(struct EventStruct *events, int event_count, const char *team, 
         if ((strcmp(events[i].team_1, team) == 0 || strcmp(events[i].team_2, team) == 0) &&
             strcmp(events[i].event_date_day, day) == 0 &&
             strcmp(events[i].event_date_month, month) == 0 &&
-            strcmp(events[i].event_date_year, year) == 0 &&
-            strcmp(events[i].local, local) == 0) {
+            strcmp(events[i].event_date_year, year) == 0) {
             return 1; // O time já tem um jogo no mesmo dia e local
         }
     }
     return 0; // O time não está ocupado
 }
-
 #endif // IS_TEAM_BUSY_H
