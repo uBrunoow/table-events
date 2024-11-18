@@ -25,7 +25,9 @@
     "find_event_by_id.h": "c",
     "update_event_by_field.h": "c",
     "enum_fields.h": "c",
-    "load_predefined_events.h": "c"
+    "load_predefined_events.h": "c",
+    "is_team_busy.h": "c",
+    "is_valid_time.h": "c"
   },
   "C_Cpp_Runner.cCompilerPath": "gcc",
   "C_Cpp_Runner.cppCompilerPath": "g++",

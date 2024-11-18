@@ -1,7 +1,7 @@
 #ifndef FIND_EVENT_BY_DATE_H
 #define FIND_EVENT_BY_DATE_H
 #include "../structs/event_struct.h"
-#include "./show_events.h"
+#include "../show/show_events.h"
 #include "../utils/compare_event.h"
 #include "../utils/binary_date_search.h"
 #include <stdio.h>

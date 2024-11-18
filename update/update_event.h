@@ -1,7 +1,7 @@
 #ifndef UPDATE_EVENT_H
 #define UPDATE_EVENT_H
 #include "../structs/event_struct.h"
-#include "./show_events.h"
+#include "../show/show_events.h"
 #include "../utils/compare_event.h"
 #include "../utils/binary_search.h"
 #include "./update_event_by_field.h"

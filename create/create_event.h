@@ -2,7 +2,7 @@
 #define CREATE_EVENT_H
 #include "../structs/event_struct.h"
 #include "./scanf_event.h"
-#include "./show_event.h"
+#include "../show/show_event.h"
 #include <stdlib.h>
 
 void create_event(struct EventStruct **events, int *event_count) {

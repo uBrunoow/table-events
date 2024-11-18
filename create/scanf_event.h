@@ -7,6 +7,7 @@
 #include "../utils/compare_event.h"
 #include "../validators/is_valid_date.h"
 #include "../validators/is_valid_time.h"
+#include "../validators/is_team_busy.h"
 
 void scanf_event(struct EventStruct *events, int event_count) {
     // Ordena os eventos pelo ID
@@ -48,17 +49,40 @@ void scanf_event(struct EventStruct *events, int event_count) {
         }
     } while (!is_valid_time(new_event.event_end_hour));
 
-    printf("Time n° 1 do evento: (ABC) ");
-    scanf("%3s", new_event.team_1);
-
-    printf("Time n° 2 do evento: (ABC) ");
-    scanf("%3s", new_event.team_2);
-
-    printf("Descrição do evento: ");
-    scanf("%99s", new_event.description);
+    // Consumir o caractere de nova linha deixado pelo scanf anterior
+    getchar();
 
     printf("Localização do evento: ");
-    scanf("%99s", new_event.local);
+    fgets(new_event.local, sizeof(new_event.local), stdin);
+
+    // Remove o caractere de nova linha, se presente
+    new_event.local[strcspn(new_event.local, "\n")] = '\0';
+
+    do {
+        printf("Time n° 1 do evento: (ABC) ");
+        scanf("%3s", new_event.team_1);
+        
+        if (is_team_busy(events, event_count, new_event.team_1, new_event.event_date_day, new_event.event_date_month, new_event.event_date_year, new_event.local) == 1) {
+            printf("O time 1 já tem um jogo no mesmo dia e local. Por favor, tente novamente.\n");
+        }
+    } while (is_team_busy(events, event_count, new_event.team_1, new_event.event_date_day, new_event.event_date_month, new_event.event_date_year, new_event.local) == 1);
+
+    do {
+        printf("Time n° 2 do evento: (ABC) ");
+        scanf("%3s", new_event.team_2);
+        if (is_team_busy(events, event_count, new_event.team_2, new_event.event_date_day, new_event.event_date_month, new_event.event_date_year, new_event.local) == 1) {
+            printf("O time 2 já tem um jogo no mesmo dia e local. Por favor, tente novamente.\n");
+        }
+    } while (is_team_busy(events, event_count, new_event.team_2, new_event.event_date_day, new_event.event_date_month, new_event.event_date_year, new_event.local) == 1);
+
+    // Consumir o caractere de nova linha deixado pelo scanf anterior
+    getchar();
+
+    printf("Descrição do evento: ");
+    fgets(new_event.description, sizeof(new_event.description), stdin);
+
+    // Remove o caractere de nova linha, se presente
+    new_event.description[strcspn(new_event.description, "\n")] = '\0';
 
     printf("O evento é pago? (0 para gratuito, 1 para pago): ");
     scanf("%d", &new_event.is_paid);

@@ -3,7 +3,7 @@
 #include "../structs/event_struct.h"
 #include "../utils/compare_event.h"
 #include "../utils/binary_search.h"
-#include "./show_events.h"
+#include "../show/show_events.h"
 #include <stdio.h>
 #include <stdlib.h>
 

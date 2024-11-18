@@ -1,7 +1,7 @@
 #ifndef FIND_EVENT_H
 #define FIND_EVENT_H
 #include "../structs/event_struct.h"
-#include "./show_events.h"
+#include "../show/show_events.h"
 #include "../utils/compare_event.h"
 
 void find_event(struct EventStruct *events, int event_count) {
